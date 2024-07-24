@@ -1,0 +1,31 @@
+
+<app-form-contato></app-form-contato>
+
+
+<app-container>
+  <app-cabecalho></app-cabecalho>
+
+
+
+  <input type="search" placeholder="Digite para pesquisar" [(ngModel)]="filtro">
+
+  <section class="adicionar-contato">
+    <button>
+      <img src="assets/plus.png" alt="">
+      <span>Adicionar contato</span>
+    </button>
+  </section>
+
+
+  @for (x of alfabeto; track x){
+    <app-separador>
+      {{x}}
+    </app-separador>
+
+    @for (y of filtrarContatos(x); track y.id){
+    <app-contato [nome]=y.nome [telefone]=y.telefone></app-contato>
+    }
+  }
+
+
+</app-container>
